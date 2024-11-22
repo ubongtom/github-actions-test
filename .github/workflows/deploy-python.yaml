@@ -27,5 +27,11 @@ jobs:
             script: |
                 pip3 install flask --break-system-packages
                 nohup python3 main.py > output.log 2>&1 &
+      - name: Super-linter
+        uses: super-linter/super-linter@v7.2.0 # x-release-please-version
+        env:
+          # To report GitHub Actions status checks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}          
+
     
 
